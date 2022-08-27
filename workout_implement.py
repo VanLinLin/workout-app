@@ -6,8 +6,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         # in python3, super(Class, self).xxx = super().xxx
         super().__init__()
-        self.ui = Ui_Workout()
-        self.ui.setupUi(self)
+        self.workout_ui = Ui_Workout()
+        self.workout_ui.setupUi(self)
         self.setWindowTitle("健身神器")
 
         # setup gif 
@@ -15,7 +15,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
     def setup_gif(self) -> None:
         self.john_cena_gif: QMovie = QMovie('sources\gif\john_cena.gif')
-        self.ui.john_cena.setMovie(self.john_cena_gif)
+        self.workout_ui.john_cena.setMovie(self.john_cena_gif)
         self.john_cena_gif.start()
 
 

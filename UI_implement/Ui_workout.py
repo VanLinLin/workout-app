@@ -32,7 +32,7 @@ class Ui_Workout(object):
         self.push_up_button.setGeometry(QRect(60, 410, 91, 51))
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(97, 20, 641, 202))
+        self.widget.setGeometry(QRect(80, 20, 641, 202))
         self.horizontalLayout = QHBoxLayout(self.widget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)

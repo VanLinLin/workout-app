@@ -15,31 +15,52 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QMainWindow, QMenuBar, QSizePolicy,
-    QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QMenuBar,
+    QPushButton, QSizePolicy, QStatusBar, QWidget)
+import appsources_rc
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QWidget(MainWindow)
+class Ui_Workout(object):
+    def setupUi(self, Workout):
+        if not Workout.objectName():
+            Workout.setObjectName(u"Workout")
+        Workout.resize(800, 600)
+        self.centralwidget = QWidget(Workout)
         self.centralwidget.setObjectName(u"centralwidget")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QMenuBar(MainWindow)
+        self.push_up_button = QPushButton(self.centralwidget)
+        self.push_up_button.setObjectName(u"push_up_button")
+        self.push_up_button.setGeometry(QRect(60, 410, 91, 51))
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(100, 90, 271, 81))
+        font = QFont()
+        font.setPointSize(50)
+        self.label.setFont(font)
+        self.john_cena = QLabel(self.centralwidget)
+        self.john_cena.setObjectName(u"john_cena")
+        self.john_cena.setGeometry(QRect(530, 20, 171, 211))
+        self.john_cena.setPixmap(QPixmap(u":/gif/gif/john_cena.gif"))
+        self.john_cena.setAlignment(Qt.AlignCenter)
+        Workout.setCentralWidget(self.centralwidget)
+        self.menubar = QMenuBar(Workout)
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 800, 22))
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QStatusBar(MainWindow)
+        Workout.setMenuBar(self.menubar)
+        self.statusbar = QStatusBar(Workout)
         self.statusbar.setObjectName(u"statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        Workout.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(Workout)
 
-        QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(Workout)
     # setupUi
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+    def retranslateUi(self, Workout):
+        Workout.setWindowTitle(QCoreApplication.translate("Workout", u"MainWindow", None))
+#if QT_CONFIG(whatsthis)
+        self.push_up_button.setWhatsThis(QCoreApplication.translate("Workout", u"<html><head/><body><p>\u958b\u59cb\u4f0f\u5730\u633a\u8eab!!!</p></body></html>", None))
+#endif // QT_CONFIG(whatsthis)
+        self.push_up_button.setText(QCoreApplication.translate("Workout", u"Pushup", None))
+        self.label.setText(QCoreApplication.translate("Workout", u"\u5065\u8eab\u795e\u5668", None))
+        self.john_cena.setText("")
     # retranslateUi
 

@@ -60,7 +60,7 @@ class Ui_Workout(object):
         self.push_up_button.setWhatsThis(QCoreApplication.translate("Workout", u"<html><head/><body><p>\u958b\u59cb\u4f0f\u5730\u633a\u8eab!!!</p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.push_up_button.setText(QCoreApplication.translate("Workout", u"Pushup", None))
-        self.label.setText(QCoreApplication.translate("Workout", u"\u5065\u8eab\u795e\u5668", None))
+        self.label.setText(QCoreApplication.translate("Workout", u"<html><head/><body><p><span style=\" color:#ff00ff;\">\u5065\u8eab\u795e\u5668</span></p></body></html>", None))
         self.john_cena.setText("")
     # retranslateUi
 

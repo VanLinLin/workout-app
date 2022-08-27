@@ -33,27 +33,27 @@ class Ui_Workout(object):
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
         self.widget.setGeometry(QRect(80, 20, 641, 202))
-        self.horizontalLayout = QHBoxLayout(self.widget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.app_name = QHBoxLayout(self.widget)
+        self.app_name.setObjectName(u"app_name")
+        self.app_name.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
         font = QFont()
         font.setPointSize(50)
         self.label.setFont(font)
 
-        self.horizontalLayout.addWidget(self.label)
+        self.app_name.addWidget(self.label)
 
         self.horizontalSpacer = QSpacerItem(78, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout.addItem(self.horizontalSpacer)
+        self.app_name.addItem(self.horizontalSpacer)
 
         self.john_cena = QLabel(self.widget)
         self.john_cena.setObjectName(u"john_cena")
         self.john_cena.setPixmap(QPixmap(u":/gif/gif/john_cena.gif"))
         self.john_cena.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout.addWidget(self.john_cena)
+        self.app_name.addWidget(self.john_cena)
 
         Workout.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Workout)

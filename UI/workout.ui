@@ -39,7 +39,7 @@
       <height>202</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="app_name">
      <item>
       <widget class="QLabel" name="label">
        <property name="font">

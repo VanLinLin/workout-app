@@ -35,6 +35,7 @@ class BlurringProcessor(QObject):
 class Window(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.resize(800, 600)
         self._captureSession = QMediaCaptureSession()
         self._frameSender = FrameSender()
         self._processorThread = QThread()

@@ -30,13 +30,13 @@
      <string>Pushup</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>97</x>
-      <y>20</y>
-      <width>641</width>
-      <height>202</height>
+      <x>30</x>
+      <y>21</y>
+      <width>806</width>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -59,7 +59,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>78</width>
+         <width>48</width>
          <height>20</height>
         </size>
        </property>
@@ -71,7 +71,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../sources/appsources.qrc">:/gif/gif/john_cena.gif</pixmap>
+        <pixmap>../sources/gif/no_cat.gif</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -87,7 +87,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -96,5 +96,25 @@
  <resources>
   <include location="../sources/appsources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>push_up_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Workout</receiver>
+   <slot>open_pushup_window()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>464</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>170</x>
+     <y>511</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>open_pushup_window()</slot>
+ </slots>
 </ui>

@@ -2,12 +2,12 @@ from PySide6 import QtWidgets
 from PySide6.QtGui import QMovie
 from UI_implement.Ui_workout import Ui_Workout
 
-class MainWindow(QtWidgets.QMainWindow):
+class WorkoutMainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         # in python3, super(Class, self).xxx = super().xxx
         super().__init__()
-        self.workout_ui = Ui_Workout()
-        self.workout_ui.setupUi(self)
+        self.workout_window = Ui_Workout()
+        self.workout_window.setupUi(self)
         self.setWindowTitle("健身神器")
 
         # setup gif 
@@ -15,7 +15,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
     def setup_gif(self) -> None:
         self.john_cena_gif: QMovie = QMovie('sources\gif\john_cena.gif')
-        self.workout_ui.john_cena.setMovie(self.john_cena_gif)
+        self.workout_window.john_cena.setMovie(self.john_cena_gif)
         self.john_cena_gif.start()
 
 

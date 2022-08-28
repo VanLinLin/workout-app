@@ -3,7 +3,8 @@ import numpy as np
 from cv2PySide6 import FrameToArrayConverter, NDArrayLabel
 from PySide6.QtCore import QObject, Signal, Slot, Qt, QThread
 from PySide6.QtMultimedia import QMediaCaptureSession, QVideoSink, QVideoFrame
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow,QApplication
+from PySide6.QtMultimedia import QCamera
 
 
 class FrameSender(QObject):
@@ -91,10 +92,7 @@ class Window(QMainWindow):
 
 
 if __name__ == "__main__":
-    from PySide6.QtWidgets import QApplication
-    from PySide6.QtMultimedia import QCamera
     import sys
-
     app = QApplication(sys.argv)
     window = Window()
     window.show()

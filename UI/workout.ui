@@ -30,13 +30,13 @@
      <string>Pushup</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>21</y>
       <width>806</width>
-      <height>291</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">

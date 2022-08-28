@@ -12,6 +12,6 @@ class PushupMainWindow(QtWidgets.QMainWindow):
 if __name__ == '__main__':
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    window = PushupMainWindow()
+    window = PushupMainWindow("健身神器")
     window.show()
     sys.exit(app.exec())

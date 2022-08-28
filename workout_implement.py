@@ -16,9 +16,9 @@ class WorkoutMainWindow(QtWidgets.QMainWindow):
         # pushup window setting
         self.open_pushup_window(window_title="伏地挺身")
 
-        
+
     def setup_gif(self) -> None:
-        self.john_cena_gif: QMovie = QMovie('sources\gif\john_cena.gif')
+        self.john_cena_gif: QMovie = QMovie(r'sources\gif\no_cat.gif')
         self.workout_window.john_cena.setMovie(self.john_cena_gif)
         self.john_cena_gif.start()
 

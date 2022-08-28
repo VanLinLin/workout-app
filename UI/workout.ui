@@ -101,17 +101,20 @@
    <sender>push_up_button</sender>
    <signal>clicked()</signal>
    <receiver>Workout</receiver>
-   <slot>show()</slot>
+   <slot>open_pushup_window()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>461</y>
+     <x>129</x>
+     <y>464</y>
     </hint>
     <hint type="destinationlabel">
-     <x>142</x>
+     <x>170</x>
      <y>511</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>open_pushup_window()</slot>
+ </slots>
 </ui>

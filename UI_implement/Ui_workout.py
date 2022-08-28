@@ -65,7 +65,7 @@ class Ui_Workout(object):
         Workout.setStatusBar(self.statusbar)
 
         self.retranslateUi(Workout)
-        self.push_up_button.clicked.connect(Workout.show)
+        self.push_up_button.clicked.connect(Workout.open_pushup_window)
 
         QMetaObject.connectSlotsByName(Workout)
     # setupUi

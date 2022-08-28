@@ -30,13 +30,13 @@ class Ui_Workout(object):
         self.push_up_button = QPushButton(self.centralwidget)
         self.push_up_button.setObjectName(u"push_up_button")
         self.push_up_button.setGeometry(QRect(60, 410, 91, 51))
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(80, 20, 641, 202))
-        self.app_name = QHBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.centralwidget)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(80, 20, 641, 202))
+        self.app_name = QHBoxLayout(self.layoutWidget)
         self.app_name.setObjectName(u"app_name")
         self.app_name.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.widget)
+        self.label = QLabel(self.layoutWidget)
         self.label.setObjectName(u"label")
         font = QFont()
         font.setPointSize(50)
@@ -48,7 +48,7 @@ class Ui_Workout(object):
 
         self.app_name.addItem(self.horizontalSpacer)
 
-        self.john_cena = QLabel(self.widget)
+        self.john_cena = QLabel(self.layoutWidget)
         self.john_cena.setObjectName(u"john_cena")
         self.john_cena.setPixmap(QPixmap(u":/gif/gif/john_cena.gif"))
         self.john_cena.setAlignment(Qt.AlignCenter)
@@ -58,13 +58,14 @@ class Ui_Workout(object):
         Workout.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Workout)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QRect(0, 0, 800, 21))
         Workout.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(Workout)
         self.statusbar.setObjectName(u"statusbar")
         Workout.setStatusBar(self.statusbar)
 
         self.retranslateUi(Workout)
+        self.push_up_button.clicked.connect(Workout.show)
 
         QMetaObject.connectSlotsByName(Workout)
     # setupUi

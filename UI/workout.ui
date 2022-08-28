@@ -30,7 +30,7 @@
      <string>Pushup</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -87,7 +87,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -96,5 +96,22 @@
  <resources>
   <include location="../sources/appsources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>push_up_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Workout</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>109</x>
+     <y>461</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>142</x>
+     <y>511</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

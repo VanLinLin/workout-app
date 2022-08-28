@@ -15,8 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QMainWindow,
+    QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
+    QStatusBar, QWidget)
 import appsources_rc
 
 class Ui_Workout(object):
@@ -29,27 +30,42 @@ class Ui_Workout(object):
         self.push_up_button = QPushButton(self.centralwidget)
         self.push_up_button.setObjectName(u"push_up_button")
         self.push_up_button.setGeometry(QRect(60, 410, 91, 51))
-        self.label = QLabel(self.centralwidget)
+        self.layoutWidget = QWidget(self.centralwidget)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(30, 21, 806, 241))
+        self.horizontalLayout = QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.layoutWidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(100, 90, 271, 81))
         font = QFont()
         font.setPointSize(50)
         self.label.setFont(font)
-        self.john_cena = QLabel(self.centralwidget)
+
+        self.horizontalLayout.addWidget(self.label)
+
+        self.horizontalSpacer = QSpacerItem(48, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.john_cena = QLabel(self.layoutWidget)
         self.john_cena.setObjectName(u"john_cena")
-        self.john_cena.setGeometry(QRect(530, 20, 171, 211))
-        self.john_cena.setPixmap(QPixmap(u":/gif/gif/john_cena.gif"))
+        self.john_cena.setPixmap(QPixmap(u"../sources/gif/no_cat.gif"))
         self.john_cena.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.john_cena)
+
         Workout.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Workout)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QRect(0, 0, 800, 21))
         Workout.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(Workout)
         self.statusbar.setObjectName(u"statusbar")
         Workout.setStatusBar(self.statusbar)
 
         self.retranslateUi(Workout)
+        self.push_up_button.clicked.connect(Workout.open_pushup_window)
 
         QMetaObject.connectSlotsByName(Workout)
     # setupUi

@@ -1,4 +1,3 @@
-from turtle import isvisible
 from PySide6 import QtWidgets
 from PySide6.QtGui import QMovie
 from UI_implement.Ui_workout import Ui_Workout
@@ -6,7 +5,7 @@ from pushup_implement import PushupMainWindow
 
 class WorkoutMainWindow(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
-        super().__init__()
+        super().__init__(parent)
         self.workout_window = Ui_Workout()
         self.workout_window.setupUi(self)
         self.setWindowTitle("健身神器")
@@ -20,7 +19,7 @@ class WorkoutMainWindow(QtWidgets.QMainWindow):
 
 
     def setup_gif(self) -> None:
-        self.john_cena_gif: QMovie = QMovie(r'sources\gif\no_cat.gif')
+        self.john_cena_gif: QMovie = QMovie(r'sources\gif\john_cena.gif')
         self.workout_window.john_cena.setMovie(self.john_cena_gif)
         self.john_cena_gif.start()
 
@@ -29,8 +28,8 @@ class WorkoutMainWindow(QtWidgets.QMainWindow):
 
     def open_pushup_window(self):
         self.pushup_window.setWindowTitle("伏地挺身")
-        self.pushup_window.open_camera()
         self.pushup_window.show()
+        self.pushup_window.open_camera()
 
     def closeEvent(self, event):
         self.pushup_window.closeEvent(event)

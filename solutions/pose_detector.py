@@ -28,7 +28,7 @@ class PoseDetector():
         # 创建一个Pose对象用于检测人体姿势
         self.pose = mp.solutions.pose.Pose( 
                                                 static_image_mode=self.static_image_mode,
-                                                model_complexity=1,
+                                                model_complexity=2,
                                                 smooth_landmarks=self.smooth_landmarks,
                                                 min_detection_confidence=0.5,
                                                 min_tracking_confidence=0.5

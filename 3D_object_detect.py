@@ -16,16 +16,16 @@ cap = cv2.VideoCapture(1)
 
 # 建立3D物件辨識的物件
 with mp_objectron.Objectron(
-                            static_image_mode=False,        # 偵測照片時才需開啟
-                            max_num_objects=5,              # 最大物件數量
-                            min_detection_confidence=0.2,   # 最小偵測信心程度，小於此值將直接忽略
-                            min_tracking_confidence=0.5,    # 最小追蹤信心程度，小於此值將直接忽略
-                            model_name='Shoe'                # 要偵測的物件
-                            ) as objectron:
-    
+    static_image_mode=False,        # 偵測照片時才需開啟
+    max_num_objects=5,              # 最大物件數量
+    min_detection_confidence=0.2,   # 最小偵測信心程度，小於此值將直接忽略
+    min_tracking_confidence=0.5,    # 最小追蹤信心程度，小於此值將直接忽略
+    model_name='Shoe'                # 要偵測的物件
+) as objectron:
+
     # 如果鏡頭開啟，則進入迴圈
     while cap.isOpened():
-        
+
         # success -> 使用影片才會用到，用於判斷影片是否結束
         # image -> 每一幀影像
         success, image = cap.read()
@@ -61,10 +61,10 @@ with mp_objectron.Objectron(
 
                 # 畫出地標
                 mp_drawing.draw_landmarks(
-                                            image, 
-                                            detected_object.landmarks_2d, 
-                                            mp_objectron.BOX_CONNECTIONS,
-                                            )
+                    image,
+                    detected_object.landmarks_2d,
+                    mp_objectron.BOX_CONNECTIONS,
+                )
 
                 # 畫出軸
                 mp_drawing.draw_axis(image, detected_object.rotation, detected_object.translation)
@@ -79,7 +79,7 @@ with mp_objectron.Objectron(
         fps = 1 / total_time
 
         # 用於將文字顯示在影像上
-        cv2.putText(image, f'FPS: {int(fps)}', (20,70), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255, 0, 0), 2)
+        cv2.putText(image, f'FPS: {int(fps)}', (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255, 0, 0), 2)
 
         # 顯示影像
         cv2.imshow('3D object detection', image)

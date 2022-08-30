@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -71,7 +71,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="john_cena">
+        <widget class="QLabel" name="john_cena_label">
          <property name="minimumSize">
           <size>
            <width>278</width>

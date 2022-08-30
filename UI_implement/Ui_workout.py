@@ -27,10 +27,10 @@ class Ui_Workout(object):
         Workout.resize(800, 600)
         self.centralwidget = QWidget(Workout)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 60, 763, 501))
-        self.verticalLayout = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.centralwidget)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(10, 60, 763, 501))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalSpacer_3 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -39,7 +39,7 @@ class Ui_Workout(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label = QLabel(self.widget)
+        self.label = QLabel(self.layoutWidget)
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(268, 80))
         font = QFont()
@@ -52,13 +52,13 @@ class Ui_Workout(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.john_cena = QLabel(self.widget)
-        self.john_cena.setObjectName(u"john_cena")
-        self.john_cena.setMinimumSize(QSize(278, 221))
-        self.john_cena.setPixmap(QPixmap(u"../sources/gif/john_cena.gif"))
-        self.john_cena.setAlignment(Qt.AlignCenter)
+        self.john_cena_label = QLabel(self.layoutWidget)
+        self.john_cena_label.setObjectName(u"john_cena_label")
+        self.john_cena_label.setMinimumSize(QSize(278, 221))
+        self.john_cena_label.setPixmap(QPixmap(u"../sources/gif/john_cena.gif"))
+        self.john_cena_label.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout.addWidget(self.john_cena)
+        self.horizontalLayout.addWidget(self.john_cena_label)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -75,7 +75,7 @@ class Ui_Workout(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.push_up_button = QPushButton(self.widget)
+        self.push_up_button = QPushButton(self.layoutWidget)
         self.push_up_button.setObjectName(u"push_up_button")
         self.push_up_button.setMinimumSize(QSize(91, 51))
 
@@ -117,7 +117,7 @@ class Ui_Workout(object):
     def retranslateUi(self, Workout):
         Workout.setWindowTitle(QCoreApplication.translate("Workout", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("Workout", u"<html><head/><body><p><span style=\" color:#ff00ff;\">\u5065\u8eab\u795e\u5668</span></p></body></html>", None))
-        self.john_cena.setText("")
+        self.john_cena_label.setText("")
 #if QT_CONFIG(whatsthis)
         self.push_up_button.setWhatsThis(QCoreApplication.translate("Workout", u"<html><head/><body><p>\u958b\u59cb\u4f0f\u5730\u633a\u8eab!!!</p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)

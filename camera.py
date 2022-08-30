@@ -1,12 +1,24 @@
 import numpy as np
 import cv2
 import time
+from typing import Literal
 from PySide6.QtCore import QThread, Signal
 from solutions.pushup_detector import PushupDetector
+from numpy import ndarray
+
 
 class Camera(QThread):
-    numpy_frame = Signal(np.ndarray)
+    """
+    定義鏡頭執行緒的功能，並且進行辨識，然後將辨識完成的影像存入numpy_frame並發射(emit)回去
+    這裡回傳的影像會被伏地挺身視窗的connect函數接收到，並傳到connect連結的函數進行後續處理
 
+    辨識完畢 -> emit 發射 -> connect 接收 -> 傳入 connect 括號內連結的函數
+    """
+
+    # 要被發射的變數
+    numpy_frame: Signal = Signal(np.ndarray)
+
+    # 建構子
     def __init__(self, parent=None):
         """ 初始化
             - 執行 QtCore.QThread 的初始化
@@ -15,47 +27,61 @@ class Camera(QThread):
             - self.connect：連接狀態
             - self.running：讀取狀態
         """
-        # 將父類初始化
+        # 繼承父類別並初始化
         super().__init__(parent)
+
         # 建立 cv2 的攝影機物件
+        # DSHOW -> Direct Show -> 可取得更高的解析度
         self.cam = cv2.VideoCapture(1, cv2.CAP_DSHOW) if cv2.VideoCapture(1).isOpened() else cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
+        # 鏡頭連接旗標，預設為False
         self.connected = False
+        # 鏡頭執行旗標，預設為False
         self.running = False
 
+        # 建立伏地挺身辨識物件
         self.detector = PushupDetector()
 
-    def run(self):
+    def run(self) -> None:
         """ 執行多執行緒
             - 讀取影像
             - 發送影像
             - 簡易異常處理
         """
-        # print('therad running')
+
+        # 呼叫計數器歸零函數
         self.detector.recounting()
-        # 當正常連接攝影機才能進入迴圈
+
+        # 當攝影機連接上並開始執行時，則開始讀取影像
         while self.connected and self.running:
+            # 讀取影像
             ret, frame = self.cam.read()
-            detected_frame = self.detector.detecting(frame)
+
+            # 若影像非None，則進行辨識並發射回辨識後的影像
             if frame is not None:
+                # 進行辨識
+                detected_frame: ndarray = self.detector.detecting(frame)
+                # 發射影像
                 self.numpy_frame.emit(detected_frame)
 
-    def open(self):
-        """ 連接攝影機 """
-        self.connected = True    # 啟動讀取狀態
+    # 連接鏡頭函數
+    def open(self) -> None:
+        # 鏡頭成功連接
+        self.connected: Literal[True] = True
 
-    def start_reading(self):
-        """ 開始攝影機影像讀取功能 """
-        self.running = True
+    # 開始執行函數
+    def start_reading(self) -> None:
+        # 鏡頭開始執行
+        self.running: Literal[True] = True
 
-    def stop_camera(self):
-        """ 關閉攝影機功能 """
-        self.connected = False    # 關閉讀取狀態
-        time.sleep(1)
-        # self.cam.release()      # 釋放攝影機
-    
-    def release_camera(self):
-        """ 關閉攝影機功能 """
-        self.connected = False    # 關閉讀取狀態
-        time.sleep(1)
+    # 關閉鏡頭函數
+    def stop_camera(self) -> None:
+        # 斷開鏡頭
+        self.connected = False
+
+    # 釋放鏡頭資源函數
+    def release_camera(self) -> None:
+        # 斷開鏡頭
+        self.connected = False
+        # 釋放鏡頭資源
         self.cam.release()

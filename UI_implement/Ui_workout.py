@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QMainWindow,
     QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
-    QStatusBar, QWidget)
+    QStatusBar, QVBoxLayout, QWidget)
 import appsources_rc
 
 class Ui_Workout(object):
@@ -27,17 +27,21 @@ class Ui_Workout(object):
         Workout.resize(800, 600)
         self.centralwidget = QWidget(Workout)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.push_up_button = QPushButton(self.centralwidget)
-        self.push_up_button.setObjectName(u"push_up_button")
-        self.push_up_button.setGeometry(QRect(60, 410, 91, 51))
         self.layoutWidget = QWidget(self.centralwidget)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(30, 21, 806, 241))
-        self.horizontalLayout = QHBoxLayout(self.layoutWidget)
+        self.layoutWidget.setGeometry(QRect(10, 60, 763, 501))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer_3 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)
+
+        self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.layoutWidget)
         self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(268, 80))
         font = QFont()
         font.setPointSize(50)
         self.label.setFont(font)
@@ -48,12 +52,52 @@ class Ui_Workout(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.john_cena = QLabel(self.layoutWidget)
-        self.john_cena.setObjectName(u"john_cena")
-        self.john_cena.setPixmap(QPixmap(u"../sources/gif/no_cat.gif"))
-        self.john_cena.setAlignment(Qt.AlignCenter)
+        self.john_cena_label = QLabel(self.layoutWidget)
+        self.john_cena_label.setObjectName(u"john_cena_label")
+        self.john_cena_label.setMinimumSize(QSize(278, 221))
+        self.john_cena_label.setPixmap(QPixmap(u"../sources/gif/john_cena.gif"))
+        self.john_cena_label.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout.addWidget(self.john_cena)
+        self.horizontalLayout.addWidget(self.john_cena_label)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.push_up_button = QPushButton(self.layoutWidget)
+        self.push_up_button.setObjectName(u"push_up_button")
+        self.push_up_button.setMinimumSize(QSize(91, 51))
+
+        self.horizontalLayout_2.addWidget(self.push_up_button)
+
+        self.horizontalSpacer_2 = QSpacerItem(568, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
+
+
+        self.horizontalLayout_3.addLayout(self.horizontalLayout_2)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_4)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 98, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_2)
 
         Workout.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Workout)
@@ -72,11 +116,11 @@ class Ui_Workout(object):
 
     def retranslateUi(self, Workout):
         Workout.setWindowTitle(QCoreApplication.translate("Workout", u"MainWindow", None))
+        self.label.setText(QCoreApplication.translate("Workout", u"<html><head/><body><p><span style=\" color:#ff00ff;\">\u5065\u8eab\u795e\u5668</span></p></body></html>", None))
+        self.john_cena_label.setText("")
 #if QT_CONFIG(whatsthis)
         self.push_up_button.setWhatsThis(QCoreApplication.translate("Workout", u"<html><head/><body><p>\u958b\u59cb\u4f0f\u5730\u633a\u8eab!!!</p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.push_up_button.setText(QCoreApplication.translate("Workout", u"Pushup", None))
-        self.label.setText(QCoreApplication.translate("Workout", u"<html><head/><body><p><span style=\" color:#ff00ff;\">\u5065\u8eab\u795e\u5668</span></p></body></html>", None))
-        self.john_cena.setText("")
     # retranslateUi
 

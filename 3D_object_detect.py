@@ -20,7 +20,7 @@ with mp_objectron.Objectron(
     max_num_objects=5,              # 最大物件數量
     min_detection_confidence=0.2,   # 最小偵測信心程度，小於此值將直接忽略
     min_tracking_confidence=0.5,    # 最小追蹤信心程度，小於此值將直接忽略
-    model_name='Shoe'                # 要偵測的物件
+    model_name='Shoe'               # 要偵測的物件
 ) as objectron:
 
     # 如果鏡頭開啟，則進入迴圈

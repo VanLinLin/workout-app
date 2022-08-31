@@ -3,3 +3,7 @@ __pycache__
 
 # virtual environment
 .venv
+.qt_for_python
+
+# designer.exe path
+.vscode

@@ -9,8 +9,8 @@ from numpy import ndarray
 
 class Camera(QThread):
     """
-    定義鏡頭執行緒的功能，並且進行辨識，然後將辨識完成的影像存入numpy_frame並發射(emit)回去
-    這裡回傳的影像會被伏地挺身視窗的connect函數接收到，並傳到connect連結的函數進行後續處理
+    定義鏡頭執行緒的功能,並且進行辨識,然後將辨識完成的影像存入numpy_frame並發射(emit)回去
+    這裡回傳的影像會被伏地挺身視窗的connect函數接收到,並傳到connect連結的函數進行後續處理
 
     辨識完畢 -> emit 發射 -> connect 接收 -> 傳入 connect 括號內連結的函數
     """
@@ -24,8 +24,8 @@ class Camera(QThread):
             - 執行 QtCore.QThread 的初始化
             - 建立 cv2 的 VideoCapture 物件
             - 設定屬性來確認狀態
-            - self.connect：連接狀態
-            - self.running：讀取狀態
+            - self.connect:連接狀態
+            - self.running:讀取狀態
         """
         # 繼承父類別並初始化
         super().__init__(parent)

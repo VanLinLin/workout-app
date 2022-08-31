@@ -5,7 +5,7 @@ from pushup_implement import PushupMainWindow
 
 
 class WorkoutMainWindow(QtWidgets.QMainWindow):
-    """用於建構主視窗，定義了開啟伏地挺身視窗的功能
+    """用於建構主視窗,定義了開啟伏地挺身視窗的功能
 
     """
 

@@ -40,7 +40,7 @@ class Camera(QThread):
         self.running = False
 
         # 建立伏地挺身辨識物件
-        self.detector = PushupDetector()
+        self.detector: PushupDetector = PushupDetector()
 
     def run(self) -> None:
         """ 執行多執行緒

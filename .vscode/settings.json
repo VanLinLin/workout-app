@@ -1,0 +1,9 @@
+{
+  "pyqt-integration.pylupdate.cmd": "",
+  "pyqt-integration.pyrcc.cmd": "C:\\Users\\van\\AppData\\Roaming\\Python\\Python39\\Scripts\\pyside6-rcc.exe",
+  "pyqt-integration.pyrcc.compile.filepath": "..\\${qrc_name}_rc.py",
+  "pyqt-integration.pyuic.cmd": "C:\\Users\\van\\AppData\\Roaming\\Python\\Python39\\Scripts\\pyside6-uic.exe",
+  "pyqt-integration.pyuic.compile.filepath": "..\\UI_implement\\Ui_${ui_name}.py",
+  "pyqt-integration.linguist.cmd": "",
+  "pyqt-integration.qtdesigner.path": "C:\\Program Files (x86)\\Qt Designer\\designer.exe"
+}

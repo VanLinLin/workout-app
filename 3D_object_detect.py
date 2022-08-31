@@ -2,11 +2,14 @@ import cv2
 import mediapipe as mp
 import time
 
+# 載入物件辨識所需權重
 mp_objectron = mp.solutions.objectron
 mp_drawing = mp.solutions.drawing_utils
 
+# 建立鏡頭物件
 cap = cv2.VideoCapture(1)
 
+# 建立物件
 with mp_objectron.Objectron(static_image_mode=False,
                             max_num_objects=5,
                             min_detection_confidence=0.2,
@@ -14,6 +17,7 @@ with mp_objectron.Objectron(static_image_mode=False,
                             model_name='Cup'
                             ) as objectron:
     
+    # 開始讀取影像
     while cap.isOpened():
         
         success, image = cap.read()
